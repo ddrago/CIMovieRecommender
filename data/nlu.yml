@@ -1,0 +1,266 @@
+version: "2.0"
+nlu:
+- intent: FindMovies
+  examples: |
+    - Can you find me a movie to watch?
+    - I need to find a movie to watch
+    - movie pls
+    - I'd like a film please
+    - What films do you recommend?
+    - A film, thanks
+    - a movie please
+    - I am in mood of watching a [Drama]{"entity": "genre", "value": "drama"} movie, so I want to find one.
+    - Suggest me a [horror](genre) movie, please
+    - I'd love o see a film [with]{"entity": "discern_starring_or_director", "value": "starring"} [Charlie]{"entity": "starring", "role": "name"} [Chaplin]{"entity": "starring", "role": "surname"}
+    - Can you recommend me a movie [with]{"entity": "discern_starring_or_director", "value": "starring"} [Robert]{"entity": "starring", "role": "name"} [Downey Jr]{"entity": "starring", "role": "surname"}.?
+    - I want to watch a movie but am having a hard time finding anything good in all these titles. Can you find me something that [stars]{"entity": "discern_starring_or_director", "value": "starring"} [Jeff]{"entity": "starring", "role": "name"} [Harding]{"entity": "starring", "role": "surname"}?
+    - I wanted to watch a film [with]{"entity": "discern_starring_or_director", "value": "starring"} [De Niro]{"entity": "starring", "role": "surname"}
+    - I wanted a science fiction movie directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Zemeckis]{"entity": "director", "role": "surname"}
+    - Can I get a movie [by]{"entity": "discern_starring_or_director", "value": "director"} [Damien]{"entity": "director", "role": "name"} [Chazelle]{"entity": "director", "role": "surname"}?
+    - I was looking for a [comedy](genre) [with]{"entity": "discern_starring_or_director", "value": "starring"} [Tom]{"entity": "starring", "role": "name"} [Hanks]{"entity": "starring", "role": "surname"}
+    - The other day I watched a [musical]{"entity": "genre", "value": "music"} [with]{"entity": "discern_starring_or_director", "value": "starring"} [John]{"entity": "starring", "role": "name"} [Travolta]{"entity": "starring", "role": "surname"}
+    - I'd like to watch a movie [with]{"entity": "discern_starring_or_director", "value": "starring"} [Amy]{"entity": "starring", "role": "name"} [Adams]{"entity": "starring", "role": "surname"} and I'd like it to be a [children's]{"entity": "genre", "value": "family"}
+    - A [history](genre) movie [by]{"entity": "discern_starring_or_director", "value": "director"} [Spielberg]{"entity": "director", "role": "surname"}
+    - I wanted to see a movie [with]{"entity": "discern_starring_or_director", "value": "starring"} [Uma]{"entity": "starring", "role": "name"} [Thurman]{"entity": "starring", "role": "surname"} directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Tarantino]{"entity": "director", "role": "surname"}
+    - A [scary]{"entity": "genre", "value": "horror"} movie [starring](discern_starring_or_director) [Grace]{"entity": "starring", "role": "name"} [Kelly]{"entity": "starring", "role": "surname"} directed [by]{"entity": "discern_starring_or_director", "value": "director"} [hitchcock]{"entity": "director", "role": "surname"}
+    - Hi, what movie can you rocommend me today?
+    - Something where there's [Jared]{"entity": "starring", "role": "name"} [Leto]{"entity": "starring", "role": "surname"} [starring](discern_starring_or_director) in a film [by]{"entity": "discern_starring_or_director", "value": "director"} [Fincher]{"entity": "director", "role": "surname"}
+    - Hi, can you suggest me a movie? I like a good [drama](genre)
+    - Alright, I like [dramas]{"entity": "genre", "value": "drama"}, is there one that [stars]{"entity": "discern_starring_or_director", "value": "starring"} [Julian]{"entity": "starring", "role": "name"} [Moore]{"entity": "starring", "role": "surname"}?
+    - Hey there, I like [war](genre) movies and I wanted to watch one [with]{"entity": "discern_starring_or_director", "value": "starring"} [Brad]{"entity": "starring", "role": "name"} [Pitt]{"entity": "starring", "role": "surname"}
+    - Will you find me movies directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Tom]{"entity": "director", "role": "name"} [McCarthy]{"entity": "director", "role": "surname"} [starring](discern_starring_or_director) [Walter]{"entity": "starring", "role": "name"} [the Dog]{"entity": "starring", "role": "surname"}?
+    - Can you find a movie for me [with]{"entity": "discern_starring_or_director", "value": "starring"} [Shayn]{"entity": "starring", "role": "name"} [Solberg]{"entity": "starring", "role": "surname"}?
+    - I need to find a movie, any type works
+    - I want to find a movie.
+    - Me and my friend need a movie to watch later
+    - Suggest me a cool [crime](genre) movie
+    - Recommend me a [romantic]{"entity": "genre", "value": "romance"} movie, full of plot twists
+    - I'm in the mood of watching a [cartoon]{"entity": "genre", "value": "animation"} please
+    - Me and my aunt are about to watch a movie. We're really really into [westerns]{"entity": "genre", "value": "western"}. Especially those [by]{"entity": "discern_starring_or_director", "value": "director"} [Sergio [Leone]{"entity": "director", "role": "surname"}!
+    - Can you find me a [Romance]{"entity": "genre", "value": "romance"} movie [starring](discern_starring_or_director) [Haaz]{"entity": "starring", "role": "name"} [Sleiman]{"entity": "starring", "role": "surname"}?
+    - Can you see if there are some other movies? I usually enjoy watching a film directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Alfred]{"entity": "director", "role": "name"} [Hitchcock]{"entity": "director", "role": "surname"}, and for the film to be [starring](discern_starring_or_director) [Alix]{"entity": "starring", "role": "name"} [Talton]{"entity": "starring", "role": "surname"}.
+    - Is there something else?
+    - something [by]{"entity": "discern_starring_or_director", "value": "director"} [Alfred]{"entity": "director", "role": "name"} [Hitchcock]{"entity": "director", "role": "surname"}
+    - mhhh... I'd rather something [by]{"entity": "discern_starring_or_director", "value": "director"} [Hitchcock]{"entity": "director", "role": "surname"} right now
+    - What about a [comic]{"entity": "genre", "value": "comedy"} movie?
+    - A [noir]{"entity": "genre", "value": "crime"} movie, [starring](discern_starring_or_director) [Grace]{"entity": "starring", "role": "name"} [Kelly]{"entity": "starring", "role": "surname"}, directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Hitchcock]{"entity": "director", "role": "surname"}
+    - No that's not what I was thinking, the movie was thinking of I think it was directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Spielberg]{"entity": "director", "role": "surname"}
+    - Is there something else then? I don't like this option
+    - Any other films?
+    - I am looking for a [funny]{"entity": "genre", "value": "comedy"} movie
+    - Not sure... is there anything else?
+    - No I'm not interested in that, suggest me something else
+    - No I don't like that, recommend me another one, my love
+    - I'm interested in [sci fi]{"entity": "genre", "value": "science fiction"} movies
+    - a [sci-fi]{"entity": "genre", "value": "science fiction"}?
+    - can you recommend me some movies?
+    - I don't like that movie
+    - Can you recommend any [comedies]{"entity": "genre", "value": "comedy"}?
+    - Something [by]{"entity": "discern_starring_or_director", "value": "director"} [Robert]{"entity": "director", "role": "name"} [Scott Wildes]{"entity": "director", "role": "surname"}?
+    - I really like [thrillers]{"entity": "genre", "value": "thriller"}. Maybe one [with]{"entity": "discern_starring_or_director", "value": "starring"} [Jake]{"entity": "starring", "role": "name"} [Gyllenhaal]{"entity": "starring", "role": "surname"}?
+    - Can you recommend me a movie [starring](discern_starring_or_director) [Chris]{"entity": "starring", "role": "name"} [Evans]{"entity": "starring", "role": "surname"}?
+    - Have you got anything [by]{"entity": "discern_starring_or_director", "value": "director"} [Edgar]{"entity": "director", "role": "name"} [Wright]{"entity": "director", "role": "surname"}
+    - I like movies [starring](discern_starring_or_director) [Michael]{"entity": "starring", "role": "name"} [Fassbender]{"entity": "starring", "role": "surname"}
+    - I'd like something [starring](discern_starring_or_director) [Art]{"entity": "starring", "role": "name"} [Parkinson]{"entity": "starring", "role": "surname"}
+    - Anything [with]{"entity": "discern_starring_or_director", "value": "starring"} [Ryan]{"entity": "starring", "role": "name"} [Gosling]{"entity": "starring", "role": "surname"}?
+    - I like movies [by]{"entity": "discern_starring_or_director", "value": "director"} [Derek]{"entity": "director", "role": "name"} [Cianfrance]{"entity": "director", "role": "surname"}
+    - I'd like something [with]{"entity": "discern_starring_or_director", "value": "starring"} [Leonardo]{"entity": "starring", "role": "name"} [DiCaprio]{"entity": "starring", "role": "surname"}
+    - What about something [by]{"entity": "discern_starring_or_director", "value": "director"} [Woody]{"entity": "director", "role": "name"} [Allen]{"entity": "director", "role": "surname"}?
+    - Movies [with]{"entity": "discern_starring_or_director", "value": "starring"} [Owen]{"entity": "starring", "role": "name"} [Wilson]{"entity": "starring", "role": "surname"}
+- intent: ask_info
+  examples: |
+    - What's the [genre](requested_info_genre)?
+    - What [genres](requested_info_genre) is this movie classified as?
+    - What's its [genre](requested_info_genre)?
+    - Who [stars](requested_info_starring) in it?
+    - What's the main [actor](requested_info_starring)?
+    - Who [acts](requested_info_starring) in it?
+    - Who [directed](requested_info_director) this?
+    - Who's this [by](requested_info_director)?
+    - Who's the [director](requested_info_director)
+    - Mhhh... Can you tell me the [director](requested_info_director)?
+    - I don't know, what [genre](requested_info_director) is the movie classified as and can you tell me who [directed](requested_info_director) it?
+    - What's the [genre](requested_info_genre) of the movie, and who [directed](requested_info_director) it?
+    - Who's [starring](requested_info_starring) in it?
+    - Who's the main [actor](requested_info_starring) in it? Also, who's it [by](requested_info_director)?
+    - Who [directs](requested_info_director) it?
+    - What [genre](requested_info_genre)?
+    - Who [directed](requested_info_director) it?
+    - Who [directed](requested_info_director) the movie?
+    - I'd like to know who's the [director](requested_info_director)
+    - Who's it [with](requested_info_starring)?
+    - Who's the main [actor](requested_info_starring) in Monster Hunter?
+    - What [genre](requested_info_genre) is it?
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Okay, that is all I needed help with at the moment.
+    - Grand, hear you later
+    - Ok, that's not what I was looking for, goodbye
+    - Hello
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - That's a good one
+    - correct
+    - Sure. That's all.
+    - perfect
+    - Ok, sounds good
+    - That'll do
+    - I like that
+    - very good very good
+    - That's just what I was thinking too
+    - yes thank you
+    - That's exactly what I was looking for, I like that!
+    - That's good, than I'll watch it!
+    - Great, thanks!
+    - That is absolutely fine, that's exactly what I was looking for, thanks!
+    - Cool, i'll take it
+    - Nice
+    - Sure.
+    - That is fine.
+    - Yeah that one sounds better
+    - Good thinking, I like that a lot
+    - Thank you very much, that was very useful
+    - cool, yeah
+    - That sounds nice!
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - no way
+    - not really
+    - Nothing for now. I am thankful.
+    - nah I'm good thanks
+    - No, that's good thanks
+    - no thanks
+    - No, that's all
+    - No thanks, that's all
+    - No, thank you.
+    - Thanks, that's all I need
+    - I don't know... ok
+    - No that's all
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - Are you a real?
+    - Are you real?
+- synonym: drama
+  examples: |
+    - Drama
+    - dramas
+    - dramatic
+    - tragic
+- synonym: starring
+  examples: |
+    - with
+    - stars
+- synonym: director
+  examples: |
+    - by
+- synonym: music
+  examples: |
+    - musical
+    - musicals
+- synonym: family
+  examples: |
+    - children's
+    - childrens
+    - children
+    - for children
+    - family-friendly
+    - family friendly
+    - kids'
+    - for kids
+    - for the whole family
+- synonym: horror
+  examples: |
+    - scary
+    - horrors
+    - terrifying
+- synonym: romance
+  examples: |
+    - romantic
+    - Romance
+    - romances
+    - love
+    - couple
+- synonym: animation
+  examples: |
+    - cartoon
+    - cartoons
+    - animations
+    - animated
+    - anime
+    - toons
+- synonym: western
+  examples: |
+    - westerns
+    - cowboy
+    - cowboys
+    - yee haw
+    - tex mex
+    - taco
+    - tacos
+- synonym: comedy
+  examples: |
+    - comic
+    - funny
+    - comedies
+    - comedic
+    - hilarious
+- synonym: crime
+  examples: |
+    - noir
+    - crimes
+    - hardboiled
+- synonym: science fiction
+  examples: |
+    - sci fi
+    - sci-fi
+    - sci fis
+    - sci-fis
+- synonym: thriller
+  examples: |
+    - thrillers
+- synonym: action
+  examples: |
+    - action packed
+    - actions
+- synonym: adventure
+  examples: |
+    - adventures
+    - adventurous
+- synonym: documentary
+  examples: |
+    - documentaries
+    - informative
+- synonym: fantasy
+  examples: |
+    - fantasies
+- synonym: history
+  examples: |
+    - histories
+    - historical
+- synonym: mystery
+  examples: |
+    - mysteries

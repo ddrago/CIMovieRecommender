@@ -1,0 +1,1336 @@
+# version: "2.0"
+
+# stories:
+
+# - story: happy path 1
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: Drama
+#   - slot_was_set:
+#     - genre: Drama
+#   - action: action_offer
+#   - slot_was_set:
+#     - offers_already_given: Titanic
+#   - intent: FindMovies
+#     entities:
+#     - director: Alfred Hitchcock
+#     - starring: Alix Talton
+#   - slot_was_set:
+#     - director: Alfred Hitchcock
+#     - starring: Alix Talton
+#   - action: action_offer
+#   - slot_was_set:
+#     - offers_already_given: The Man Who Knew Too Much
+#   - intent: affirm
+#   - action: utter_request_more
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: happy path 2
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - director: Alfred Hitchcock
+#     - genre: comedy
+#   - slot_was_set:
+#     - director: Alfred Hitchcock
+#     - genre: comedy
+#   - action: action_offer
+#   - slot_was_set:
+#     - offers_already_given: The Man Who Knew Too Much
+#   - intent: affirm
+#   - action: utter_request_more
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: happy path 3
+#   steps:
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - offers_already_given: Monster Hunter
+#   - intent: affirm
+#   - action: utter_request_more
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - starring: Jared Leto
+#     - director: Fincher
+#   - slot_was_set:
+#     - starring: Jared Leto
+#   - slot_was_set:
+#     - director: Fincher
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Drama
+#   - slot_was_set:
+#     - info_starring: Jared Leto
+#   - slot_was_set:
+#     - info_director: Fincher
+#   - slot_was_set:
+#     - aggregate_rating: '8.4'
+#   - slot_was_set:
+#     - title: Fight Club
+#   - slot_was_set:
+#     - offers_already_given:
+#       - Fight Club
+#   - intent: affirm
+#   - action: utter_request_more
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: drama
+#   - slot_was_set:
+#     - genre: drama
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: drama
+#   - slot_was_set:
+#     - info_starring: Johannes Bah Kuhnke
+#   - slot_was_set:
+#     - info_director: Alain Darborg
+#   - slot_was_set:
+#     - aggregate_rating: '6.2'
+#   - slot_was_set:
+#     - title: Red Dot
+#   - slot_was_set:
+#     - offers_already_given:
+#       - Red Dot
+#   - intent: ask_info
+#     entities:
+#     - requested_info_starring: starring
+#   - slot_was_set:
+#     - requested_info_starring: starring
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: drama
+#   - slot_was_set:
+#     - info_starring: 송중기
+#   - slot_was_set:
+#     - info_director: Jo Sung-hee
+#   - slot_was_set:
+#     - aggregate_rating: '7.3'
+#   - slot_was_set:
+#     - title: Space Sweepers
+#   - slot_was_set:
+#     - offers_already_given:
+#       - Red Dot
+#       - Space Sweepers
+#   - intent: ask_info
+#     entities:
+#     - requested_info_starring: actor
+#     - requested_info_director: by
+#   - slot_was_set:
+#     - requested_info_starring: actor
+#   - slot_was_set:
+#     - requested_info_director: by
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: affirm
+#   - action: utter_request_more
+
+# - story: interactive_story_3
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: drama
+#     - starring: Julian Moore
+#   - slot_was_set:
+#     - genre: drama
+#   - slot_was_set:
+#     - starring: Julian Moore
+#   - action: action_offer
+#   - slot_was_set:
+#     - genre: null
+#   - slot_was_set:
+#     - starring: null
+#   - slot_was_set:
+#     - director: null
+#   - slot_was_set:
+#     - title: null
+
+# - story: interactive_story_4
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: drama
+#     - starring: Julianne Moore
+#   - slot_was_set:
+#     - genre: drama
+#   - slot_was_set:
+#     - starring: Julianne Moore
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: drama
+#   - slot_was_set:
+#     - info_starring: Julianne Moore
+#   - slot_was_set:
+#     - info_director: Glenn Ficarra
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Crazy, Stupid, Love.
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 50646
+#   - intent: ask_info
+#     entities:
+#     - requested_info_director: directs
+#   - slot_was_set:
+#     - requested_info_director: directs
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: affirm
+#   - action: utter_request_more
+
+# - story: interactive_story_5
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - director: Tom McCarthy
+#     - starring: Walter the Dog
+#   - slot_was_set:
+#     - starring: Walter the Dog
+#   - slot_was_set:
+#     - director: Tom McCarthy
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Family
+#   - slot_was_set:
+#     - info_starring: Walter the Dog
+#   - slot_was_set:
+#     - info_director: Tom McCarthy
+#   - slot_was_set:
+#     - aggregate_rating: '6.2'
+#   - slot_was_set:
+#     - title: 'Timmy Failure: Mistakes Were Made'
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 550440
+#   - intent: ask_info
+#     entities:
+#     - requested_info_genre: genre
+#   - slot_was_set:
+#     - requested_info_genre: genre
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+
+# - story: interactive_story_6
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - director: Shayn Solberg
+#   - slot_was_set:
+#     - director: Shayn Solberg
+#   - action: action_offer
+#   - slot_was_set:
+#     - genre: null
+#   - slot_was_set:
+#     - starring: null
+#   - slot_was_set:
+#     - director: null
+#   - slot_was_set:
+#     - title: null
+
+# - story: interactive_story_7
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - starring: Shayn Solberg
+#   - slot_was_set:
+#     - starring: Shayn Solberg
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Comedy
+#   - slot_was_set:
+#     - info_starring: Shayn Solberg
+#   - slot_was_set:
+#     - info_director: Deborah Kaplan
+#   - slot_was_set:
+#     - aggregate_rating: '5.5'
+#   - slot_was_set:
+#     - title: Josie and the Pussycats
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 19366
+#   - intent: affirm
+#   - action: utter_request_more
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: interactive_story_8
+#   steps:
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Monster Hunter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#   - intent: ask_info
+#     entities:
+#     - requested_info_director: directed
+#   - slot_was_set:
+#     - requested_info_director: directed
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Drama
+#   - slot_was_set:
+#     - info_starring: Johannes Bah Kuhnke
+#   - slot_was_set:
+#     - info_director: Alain Darborg
+#   - slot_was_set:
+#     - aggregate_rating: '6.3'
+#   - slot_was_set:
+#     - title: Red Dot
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 649087
+#   - intent: FindMovies
+#     entities:
+#     - starring: Mike Colter
+#   - slot_was_set:
+#     - starring: Mike Colter
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Action
+#   - slot_was_set:
+#     - info_starring: Mike Colter
+#   - slot_was_set:
+#     - info_director: Deon Taylor
+#   - slot_was_set:
+#     - aggregate_rating: '6.7'
+#   - slot_was_set:
+#     - title: Black and Blue
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 649087
+#       - 578189
+#   - intent: ask_info
+#     entities:
+#     - requested_info_director: directed
+#   - slot_was_set:
+#     - requested_info_director: directed
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: interactive_story_9
+#   steps:
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Monster Hunter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#   - intent: FindMovies
+#     entities:
+#     - genre: funny
+#   - slot_was_set:
+#     - genre: funny
+#   - action: action_offer
+
+# - story: interactive_story_10
+#   steps:
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Monster Hunter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#   - intent: FindMovies
+#     entities:
+#     - genre: comedy
+#   - slot_was_set:
+#     - genre: comedy
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: comedy
+#   - slot_was_set:
+#     - info_starring: William Hanna
+#   - slot_was_set:
+#     - info_director: Tim Story
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Tom & Jerry
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 587807
+#   - intent: FindMovies
+#     entities:
+#     - director: Harry Elfont
+#     - starring: Harmoni Everett
+#   - slot_was_set:
+#     - starring: Harmoni Everett
+#   - slot_was_set:
+#     - director: Harry Elfont
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: comedy
+#   - slot_was_set:
+#     - info_starring: Harmoni Everett
+#   - slot_was_set:
+#     - info_director: Harry Elfont
+#   - slot_was_set:
+#     - aggregate_rating: '5.5'
+#   - slot_was_set:
+#     - title: Josie and the Pussycats
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 587807
+#       - 19366
+#   - intent: affirm
+
+# - story: interactive_story_11
+#   steps:
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Monster Hunter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Drama
+#   - slot_was_set:
+#     - info_starring: Johannes Bah Kuhnke
+#   - slot_was_set:
+#     - info_director: Alain Darborg
+#   - slot_was_set:
+#     - aggregate_rating: '6.3'
+#   - slot_was_set:
+#     - title: Red Dot
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 649087
+#   - intent: FindMovies
+#     entities:
+#     - genre: fantasy
+#     - director: Neil Marshall
+#   - slot_was_set:
+#     - genre: fantasy
+#   - slot_was_set:
+#     - director: Neil Marshall
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: fantasy
+#   - slot_was_set:
+#     - info_starring: David Harbour
+#   - slot_was_set:
+#     - info_director: Neil Marshall
+#   - slot_was_set:
+#     - aggregate_rating: '5.5'
+#   - slot_was_set:
+#     - title: Hellboy
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 649087
+#       - 456740
+#   - intent: affirm
+
+# - story: interactive_story_12
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: crime
+#   - slot_was_set:
+#     - genre: crime
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: crime
+#   - slot_was_set:
+#     - info_starring: Denzel Washington
+#   - slot_was_set:
+#     - info_director: John Lee Hancock
+#   - slot_was_set:
+#     - aggregate_rating: '6.3'
+#   - slot_was_set:
+#     - title: The Little Things
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 602269
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: crime
+#   - slot_was_set:
+#     - info_starring: Javier Gutiérrez
+#   - slot_was_set:
+#     - info_director: Lluís Quílez
+#   - slot_was_set:
+#     - aggregate_rating: '6.4'
+#   - slot_was_set:
+#     - title: Below Zero
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 602269
+#       - 587996
+
+# - story: interactive_story_13
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: romance
+#     - genre: romance
+#   - slot_was_set:
+#     - genre: romance
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: romance
+#   - slot_was_set:
+#     - info_starring: Lana Condor
+#   - slot_was_set:
+#     - info_director: Michael Fimognari
+#   - slot_was_set:
+#     - aggregate_rating: '8'
+#   - slot_was_set:
+#     - title: 'To All the Boys: Always and Forever'
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 614409
+#   - intent: affirm
+#   - action: utter_request_more
+#   - intent: ask_info
+#     entities:
+#     - requested_info_director: director
+#   - slot_was_set:
+#     - requested_info_director: director
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: ask_info
+#     entities:
+#     - requested_info_starring: starring
+#   - slot_was_set:
+#     - requested_info_starring: starring
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: affirm
+
+# - story: interactive_story_14
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: horror
+#   - slot_was_set:
+#     - genre: horror
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: horror
+#   - slot_was_set:
+#     - info_starring: Katherine Heigl
+#   - slot_was_set:
+#     - info_director: Castille Landon
+#   - slot_was_set:
+#     - aggregate_rating: '7.3'
+#   - slot_was_set:
+#     - title: Fear of Rain
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 599281
+#   - intent: ask_info
+#     entities:
+#     - requested_info_director: directed
+#   - slot_was_set:
+#     - requested_info_director: directed
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: horror
+#   - slot_was_set:
+#     - info_starring: Jessica McNamee
+#   - slot_was_set:
+#     - info_director: Andrew Traucki
+#   - slot_was_set:
+#     - aggregate_rating: '5.1'
+#   - slot_was_set:
+#     - title: 'Black Water: Abyss'
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 599281
+#       - 522444
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: interactive_story_15
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: western
+#     - director: Sergio Leone
+#   - slot_was_set:
+#     - genre: western
+#   - slot_was_set:
+#     - director: Sergio Leone
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: western
+#   - slot_was_set:
+#     - info_starring: Clint Eastwood
+#   - slot_was_set:
+#     - info_director: Sergio Leone
+#   - slot_was_set:
+#     - aggregate_rating: '8.4'
+#   - slot_was_set:
+#     - title: The Good, the Bad and the Ugly
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 429
+#   - intent: ask_info
+#     entities:
+#     - requested_info_starring: with
+#   - slot_was_set:
+#     - requested_info_starring: with
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+
+# - story: interactive_story_16
+#   steps:
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Monster Hunter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#   - intent: ask_info
+#     entities:
+#     - requested_info_starring: actor
+#   - slot_was_set:
+#     - requested_info_starring: actor
+#   - action: action_give_info
+#   - slot_was_set:
+#     - requested_info_genre: false
+#   - slot_was_set:
+#     - requested_info_starring: false
+#   - slot_was_set:
+#     - requested_info_director: false
+#   - intent: FindMovies
+#     entities:
+#     - starring: Milla Jovovich
+#   - slot_was_set:
+#     - starring: Milla Jovovich
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Neil Marshall
+#   - slot_was_set:
+#     - aggregate_rating: '5.5'
+#   - slot_was_set:
+#     - title: Hellboy
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 456740
+#   - intent: FindMovies
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Science Fiction
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: James Franco
+#   - slot_was_set:
+#     - aggregate_rating: '4.1'
+#   - slot_was_set:
+#     - title: Future World
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 456740
+#       - 411135
+#   - intent: FindMovies
+#     entities:
+#     - genre: horror
+#   - slot_was_set:
+#     - genre: horror
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: horror
+#   - slot_was_set:
+#     - info_starring: Milla Jovovich
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '6.6'
+#   - slot_was_set:
+#     - title: Resident Evil
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 456740
+#       - 411135
+#       - 1576
+#   - intent: FindMovies
+#     entities:
+#     - genre: comedy
+#     - starring: None
+#   - slot_was_set:
+#     - genre: comedy
+#   - slot_was_set:
+#     - starring: None
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: comedy
+#   - slot_was_set:
+#     - info_starring: None
+#   - slot_was_set:
+#     - info_director: Mister Ooh-La-La
+#   - slot_was_set:
+#     - aggregate_rating: '2'
+#   - slot_was_set:
+#     - title: Earth Day
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 456740
+#       - 411135
+#       - 1576
+#       - 73460
+#   - intent: affirm
+#   - action: utter_request_more
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - starring: Daniel Portman
+#   - slot_was_set:
+#     - starring: Daniel Portman
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Documentary
+#   - slot_was_set:
+#     - info_starring: Daniel Portman
+#   - slot_was_set:
+#     - info_director: Jeanie Finlay
+#   - slot_was_set:
+#     - aggregate_rating: '7.1'
+#   - slot_was_set:
+#     - title: 'Game of Thrones: The Last Watch'
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 591278
+#   - intent: FindMovies
+#     entities:
+#     - director: Robert Scott Wildes
+#   - slot_was_set:
+#     - director: Robert Scott Wildes
+#   - action: action_offer
+#   - slot_was_set:
+#     - genre: null
+#   - slot_was_set:
+#     - starring: null
+#   - slot_was_set:
+#     - director: null
+#   - slot_was_set:
+#     - title: null
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - starring: Paul Mescal
+#   - slot_was_set:
+#     - starring: Paul Mescal
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Drama
+#   - slot_was_set:
+#     - info_starring: Paul Mescal
+#   - slot_was_set:
+#     - info_director: Maggie Gyllenhaal
+#   - slot_was_set:
+#     - aggregate_rating: '0'
+#   - slot_was_set:
+#     - title: The Lost Daughter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 554230
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - starring: Evan Todd
+#   - slot_was_set:
+#     - starring: Evan Todd
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Comedy
+#   - slot_was_set:
+#     - info_starring: Evan Todd
+#   - slot_was_set:
+#     - info_director: Andrew Nackman
+#   - slot_was_set:
+#     - aggregate_rating: '6.9'
+#   - slot_was_set:
+#     - title: 4th Man Out
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 342672
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: horror
+#     - starring: Evan Todd
+#   - slot_was_set:
+#     - genre: horror
+#   - slot_was_set:
+#     - starring: Evan Todd
+#   - action: action_offer
+#   - slot_was_set:
+#     - genre: null
+#   - slot_was_set:
+#     - starring: null
+#   - slot_was_set:
+#     - director: null
+#   - slot_was_set:
+#     - title: null
+#   - intent: FindMovies
+#     entities:
+#     - starring: Lila Facchini
+#   - slot_was_set:
+#     - starring: Lila Facchini
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Fantasy
+#   - slot_was_set:
+#     - info_starring: Lila Facchini
+#   - slot_was_set:
+#     - info_director: Paul W. S. Anderson
+#   - slot_was_set:
+#     - aggregate_rating: '7.2'
+#   - slot_was_set:
+#     - title: Monster Hunter
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#   - intent: FindMovies
+#     entities:
+#     - starring: Valeria Bilello
+#   - slot_was_set:
+#     - starring: Valeria Bilello
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Comedy
+#   - slot_was_set:
+#     - info_starring: Valeria Bilello
+#   - slot_was_set:
+#     - info_director: James D'Arcy
+#   - slot_was_set:
+#     - aggregate_rating: '6.1'
+#   - slot_was_set:
+#     - title: Made in Italy
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 458576
+#       - 659991
+
+# - story: interactive_story_3
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - genre: thriller
+#     - starring: Jake Gyllenhaal
+#   - slot_was_set:
+#     - genre: thriller
+#   - slot_was_set:
+#     - starring: Jake Gyllenhaal
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: thriller
+#   - slot_was_set:
+#     - info_starring: Jake Gyllenhaal
+#   - slot_was_set:
+#     - info_director: Dan Gilroy
+#   - slot_was_set:
+#     - aggregate_rating: '7.7'
+#   - slot_was_set:
+#     - title: Nightcrawler
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 242582
+#   - intent: FindMovies
+#     entities:
+#     - genre: romance
+#   - slot_was_set:
+#     - genre: romance
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: romance
+#   - slot_was_set:
+#     - info_starring: Jake Gyllenhaal
+#   - slot_was_set:
+#     - info_director: Edward Zwick
+#   - slot_was_set:
+#     - aggregate_rating: '7'
+#   - slot_was_set:
+#     - title: Love & Other Drugs
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 242582
+#       - 43347
+#   - intent: FindMovies
+#     entities:
+#     - director: Ang Lee
+#   - slot_was_set:
+#     - director: Ang Lee
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: romance
+#   - slot_was_set:
+#     - info_starring: Jake Gyllenhaal
+#   - slot_was_set:
+#     - info_director: Ang Lee
+#   - slot_was_set:
+#     - aggregate_rating: '7.8'
+#   - slot_was_set:
+#     - title: Brokeback Mountain
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 242582
+#       - 43347
+#       - 142
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: FindMovies
+#     entities:
+#     - starring: Chris
+#     - starring: Evans
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Animation
+#   - slot_was_set:
+#     - info_starring: Kelly Marie Tran
+#   - slot_was_set:
+#     - info_director: Don Hall
+#   - slot_was_set:
+#     - aggregate_rating: '8.6'
+#   - slot_was_set:
+#     - title: Raya and the Last Dragon
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 527774
+#   - intent: FindMovies
+#     entities:
+#     - director: Edgar
+#     - director: Wright
+#   - action: action_offer
+#   - slot_was_set:
+#     - info_genre: Action
+#   - slot_was_set:
+#     - info_starring: William Hanna
+#   - slot_was_set:
+#     - info_director: Tim Story
+#   - slot_was_set:
+#     - aggregate_rating: '7.7'
+#   - slot_was_set:
+#     - title: Tom & Jerry
+#   - slot_was_set:
+#     - offers_already_given:
+#       - 527774
+#       - 587807
+
+- story: happy_path
+  steps:
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: starring
+    - starring: Michael
+    - starring: Fassbender  
+  - slot_was_set:
+    - discern_starring_or_director: starring
+  - action: starring_form
+  - active_loop: starring_form
+  - slot_was_set:
+    - starring_name: Michael
+  - slot_was_set:
+    - starring_surname: Fassbender
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Animation
+  - slot_was_set:
+    - info_starring: MichaelFassbender
+  - slot_was_set:
+    - info_director: Don Hall
+  - slot_was_set:
+    - aggregate_rating: '8.6'
+  - slot_was_set:
+    - title: Raya and the Last Dragon
+  - slot_was_set:
+    - offers_already_given:
+      - 527774
+
+- story: happy_path_2
+  steps:
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: director
+    - director: Michael
+    - director: Fassbender  
+  - slot_was_set:
+    - discern_starring_or_director: director
+  - action: director_form
+  - active_loop: director_form
+  - slot_was_set:
+    - director_name: Michael
+  - slot_was_set:
+    - director_surname: Fassbender
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Animation
+  - slot_was_set:
+    - info_starring: MichaelFassbender
+  - slot_was_set:
+    - info_director: Don Hall
+  - slot_was_set:
+    - aggregate_rating: '8.6'
+  - slot_was_set:
+    - title: Raya and the Last Dragon
+  - slot_was_set:
+    - offers_already_given:
+      - 527774
+
+- story: interactive_story_0
+  steps:
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: starring
+    - starring: Art
+    - starring: Parkinson
+  - slot_was_set:
+    - discern_starring_or_director: starring
+  - action: starring_form
+  - active_loop: starring_form
+  - slot_was_set:
+    - starring_name: Art
+  - slot_was_set:
+    - starring_surname: Parkinson
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Animation
+  - slot_was_set:
+    - info_starring: Art Parkinson
+  - slot_was_set:
+    - info_director: Travis Knight
+  - slot_was_set:
+    - aggregate_rating: '7.7'
+  - slot_was_set:
+    - title: Kubo and the Two Strings
+  - slot_was_set:
+    - offers_already_given:
+      - 313297
+- story: interactive_story_1
+  steps:
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: starring
+    - starring: Ryan
+    - starring: Gosling
+  - slot_was_set:
+    - discern_starring_or_director: starring
+  - action: starring_form
+  - active_loop: starring_form
+  - slot_was_set:
+    - starring_name: Ryan
+  - slot_was_set:
+    - starring_surname: Gosling
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Science Fiction
+  - slot_was_set:
+    - info_starring: Ryan Gosling
+  - slot_was_set:
+    - info_director: Denis Villeneuve
+  - slot_was_set:
+    - aggregate_rating: '7.5'
+  - slot_was_set:
+    - title: Blade Runner 2049
+  - slot_was_set:
+    - offers_already_given:
+      - 335984
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: director
+    - director: Derek
+    - director: Cianfrance
+  - slot_was_set:
+    - discern_starring_or_director: director
+  - action: director_form
+  - active_loop: director_form
+  - slot_was_set:
+    - director_name: Derek
+  - slot_was_set:
+    - director_surname: Cianfrance
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Drama
+  - slot_was_set:
+    - info_starring: Ryan Gosling
+  - slot_was_set:
+    - info_director: Derek Cianfrance
+  - slot_was_set:
+    - aggregate_rating: '6.9'
+  - slot_was_set:
+    - title: Blue Valentine
+  - slot_was_set:
+    - offers_already_given:
+      - 335984
+      - 46705
+
+- story: interactive_story_4
+  steps:
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: starring
+    - starring: Leonardo
+    - starring: DiCaprio
+  - slot_was_set:
+    - discern_starring_or_director: starring
+  - action: starring_form
+  - active_loop: starring_form
+  - slot_was_set:
+    - starring_name: Leonardo
+  - slot{"starring_surname": DiCaprio}
+  - slot_was_set:
+    - starring_surname: DiCaprio
+  - slot{"starring_surname": DiCaprio}
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Crime
+  - slot_was_set:
+    - info_starring: Leonardo DiCaprio
+  - slot_was_set:
+    - info_director: Martin Scorsese
+  - slot_was_set:
+    - aggregate_rating: '8'
+  - slot_was_set:
+    - title: The Wolf of Wall Street
+  - slot_was_set:
+    - offers_already_given:
+      - 106646
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: director
+    - director: Woody
+    - director: Allen
+  - slot_was_set:
+    - discern_starring_or_director: director
+  - action: director_form
+  - active_loop: director_form
+  - slot_was_set:
+    - director_name: Woody
+  - slot{"director_name": Woody}
+  - slot_was_set:
+    - director_surname: Allen
+  - slot{"director_surname": Allen}
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Drama
+  - slot_was_set:
+    - info_starring: Leonardo DiCaprio
+  - slot_was_set:
+    - info_director: Woody Allen
+  - slot_was_set:
+    - aggregate_rating: '6'
+  - slot_was_set:
+    - title: Celebrity
+  - slot_was_set:
+    - offers_already_given:
+      - 106646
+      - 9466
+  - intent: ask_info
+    entities:
+    - requested_info_genre: genre
+  - slot_was_set:
+    - requested_info_genre: genre
+  - action: action_give_info
+  - slot_was_set:
+    - requested_info_genre: false
+  - slot_was_set:
+    - requested_info_starring: false
+  - slot_was_set:
+    - requested_info_director: false
+
+- story: interactive_story_1
+  steps:
+  - intent: FindMovies
+    entities:
+    - discern_starring_or_director: starring
+    - starring: Owen
+    - starring: Wilson
+  - slot_was_set:
+    - discern_starring_or_director: starring
+  - action: starring_form
+  - active_loop: starring_form
+  - slot_was_set:
+    - starring_name: Owen
+  - slot_was_set:
+    - starring_surname: Wilson
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_offer
+  - slot_was_set:
+    - info_genre: Science Fiction
+  - slot_was_set:
+    - info_starring: Owen Wilson
+  - slot_was_set:
+    - info_director: Mike Cahill
+  - slot_was_set:
+    - aggregate_rating: '5.4'
+  - slot_was_set:
+    - title: Bliss
+  - slot_was_set:
+    - offers_already_given:
+      - 613911
+  - intent: affirm
+  - action: utter_request_more
+  - intent: deny
+  - action: utter_goodbye

@@ -1,0 +1,56 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Give info any time the user asks for info about the movie #why is this never respected?
+  steps:
+  - intent: ask_info
+  - slot_was_set:
+    - requested_info_starring: stars
+  - action: action_give_info
+
+- rule: Activate starring_form
+  steps:
+  - intent: FindMovies
+  - slot_was_set:
+    - discern_starring_or_director: starring
+  - action: starring_form
+  - active_loop: starring_form
+
+- rule: Submit starring_form
+  condition: 
+  - active_loop: starring_form
+  steps:
+  - action: starring_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_offer
+
+- rule: Activate director_form
+  steps:
+  - intent: FindMovies
+  - slot_was_set:
+    - discern_starring_or_director: director
+  - action: director_form
+  - active_loop: director_form
+
+- rule: Submit director_form
+  condition: 
+  - active_loop: director_form
+  steps:
+  - action: director_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_offer

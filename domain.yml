@@ -1,0 +1,120 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- FindMovies
+- affirm
+- ask_info
+- goodbye
+- deny
+- bot_challenge
+entities:
+- aggregate_rating
+- starring:
+    roles:
+    - name
+    - surname
+- genre
+- discern_starring_or_director
+- director:
+    roles:
+    - name
+    - surname
+- requested_info_director
+- requested_info_genre
+- requested_info_starring
+- title
+slots:
+  genre:
+    type: text
+    influence_conversation: true
+  discern_starring_or_director:
+    type: categorical
+    values:
+      - starring
+      - director
+  starring_name:
+    type: text
+    influence_conversation: true
+  starring_surname:
+    type: text
+    influence_conversation: true
+  director_name:
+    type: text
+    influence_conversation: true
+  director_surname:
+    type: text
+    influence_conversation: true
+  title:
+    type: text
+    influence_conversation: true
+  aggregate_rating:
+    type: float
+    influence_conversation: true
+    max_value: 10.0
+    min_value: 0.0
+  requested_info_genre:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+  requested_info_starring:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+  requested_info_director:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+  info_genre:
+    type: text
+    influence_conversation: true
+  info_starring:
+    type: text
+    influence_conversation: true
+  info_director:
+    type: text
+    influence_conversation: true
+  offers_already_given:
+    type: list
+    initial_value: []
+    influence_conversation: true
+responses:
+  utter_goodbye:
+  - text: I am glad to have helped you.
+  - text: Happy to have helped.
+  - text: Glad that I could help.
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_request_more:
+  - text: Is there something else I can help you with?
+  - text: Is there anything else you need?
+actions:
+- action_give_info
+- action_offer
+- utter_goodbye
+- utter_iamabot
+- utter_request_more
+forms:
+  starring_form:
+    starring_name:
+      - type: from_entity
+        entity: starring
+        role: name
+    starring_surname:
+      - type: from_entity
+        entity: starring
+        role: surname
+      - type: from_entity
+        entity: starring
+  director_form:
+    director_name:
+      - type: from_entity
+        entity: director
+        role: name
+    director_surname:
+      - type: from_entity
+        entity: director
+        role: surname
+      - type: from_entity
+        entity: director
