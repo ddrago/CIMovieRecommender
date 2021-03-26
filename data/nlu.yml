@@ -1,6 +1,6 @@
 version: "2.0"
 nlu:
-- intent: FindMovies
+- intent: SimpleFindMovies
   examples: |
     - Can you find me a movie to watch?
     - I need to find a movie to watch
@@ -10,7 +10,35 @@ nlu:
     - A film, thanks
     - a movie please
     - I am in mood of watching a [Drama]{"entity": "genre", "value": "drama"} movie, so I want to find one.
-    - Suggest me a [horror](genre) movie, please
+    - Suggest me a [horror]{"entity": "genre", "value": ""} movie, please
+    - Hi, what movie can you rocommend me today?
+    - Hi, can you suggest me a movie? I like a good [drama](genre)
+    - I need to find a movie, any type works
+    - I want to find a movie.
+    - Me and my friend need a movie to watch later
+    - Suggest me a cool [crime](genre) movie
+    - Recommend me a [romantic]{"entity": "genre", "value": "romance"} movie, full of plot twists
+    - I'm in the mood of watching a [cartoon]{"entity": "genre", "value": "animation"} please
+    - Is there something else?
+    - Is there something else then? I don't like this option
+    - Any other films?
+    - I am looking for a [funny]{"entity": "genre", "value": "comedy"} movie
+    - Not sure... is there anything else?
+    - No I'm not interested in that, suggest me something else
+    - No I don't like that, recommend me another one, my love
+    - I'm interested in [sci fi]{"entity": "genre", "value": "science fiction"} movies
+    - a [sci-fi]{"entity": "genre", "value": "science fiction"}?
+    - can you recommend me some movies?
+    - I don't like that movie
+    - What about a [comic]{"entity": "genre", "value": "comedy"} movie?
+    - Can you recommend any [comedies]{"entity": "genre", "value": "comedy"}?
+    - Did he ever make a [horror](genre) movie? I like those
+    - Is there something else then?
+    - Recommend me a [western](genre) please
+    - Can you recommend me a [funny]{"entity": "genre", "value": "comedy"} movie please?
+    - Something [romantic]{"entity": "genre", "value": "romance"} maybe?
+- intent: FindMovies
+  examples: |
     - I'd love o see a film [with]{"entity": "discern_starring_or_director", "value": "starring"} [Charlie]{"entity": "starring", "role": "name"} [Chaplin]{"entity": "starring", "role": "surname"}
     - Can you recommend me a movie [with]{"entity": "discern_starring_or_director", "value": "starring"} [Robert]{"entity": "starring", "role": "name"} [Downey Jr]{"entity": "starring", "role": "surname"}.?
     - I want to watch a movie but am having a hard time finding anything good in all these titles. Can you find me something that [stars]{"entity": "discern_starring_or_director", "value": "starring"} [Jeff]{"entity": "starring", "role": "name"} [Harding]{"entity": "starring", "role": "surname"}?
@@ -23,39 +51,18 @@ nlu:
     - A [history](genre) movie [by]{"entity": "discern_starring_or_director", "value": "director"} [Spielberg]{"entity": "director", "role": "surname"}
     - I wanted to see a movie [with]{"entity": "discern_starring_or_director", "value": "starring"} [Uma]{"entity": "starring", "role": "name"} [Thurman]{"entity": "starring", "role": "surname"} directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Tarantino]{"entity": "director", "role": "surname"}
     - A [scary]{"entity": "genre", "value": "horror"} movie [starring](discern_starring_or_director) [Grace]{"entity": "starring", "role": "name"} [Kelly]{"entity": "starring", "role": "surname"} directed [by]{"entity": "discern_starring_or_director", "value": "director"} [hitchcock]{"entity": "director", "role": "surname"}
-    - Hi, what movie can you rocommend me today?
     - Something where there's [Jared]{"entity": "starring", "role": "name"} [Leto]{"entity": "starring", "role": "surname"} [starring](discern_starring_or_director) in a film [by]{"entity": "discern_starring_or_director", "value": "director"} [Fincher]{"entity": "director", "role": "surname"}
-    - Hi, can you suggest me a movie? I like a good [drama](genre)
     - Alright, I like [dramas]{"entity": "genre", "value": "drama"}, is there one that [stars]{"entity": "discern_starring_or_director", "value": "starring"} [Julian]{"entity": "starring", "role": "name"} [Moore]{"entity": "starring", "role": "surname"}?
     - Hey there, I like [war](genre) movies and I wanted to watch one [with]{"entity": "discern_starring_or_director", "value": "starring"} [Brad]{"entity": "starring", "role": "name"} [Pitt]{"entity": "starring", "role": "surname"}
     - Will you find me movies directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Tom]{"entity": "director", "role": "name"} [McCarthy]{"entity": "director", "role": "surname"} [starring](discern_starring_or_director) [Walter]{"entity": "starring", "role": "name"} [the Dog]{"entity": "starring", "role": "surname"}?
     - Can you find a movie for me [with]{"entity": "discern_starring_or_director", "value": "starring"} [Shayn]{"entity": "starring", "role": "name"} [Solberg]{"entity": "starring", "role": "surname"}?
-    - I need to find a movie, any type works
-    - I want to find a movie.
-    - Me and my friend need a movie to watch later
-    - Suggest me a cool [crime](genre) movie
-    - Recommend me a [romantic]{"entity": "genre", "value": "romance"} movie, full of plot twists
-    - I'm in the mood of watching a [cartoon]{"entity": "genre", "value": "animation"} please
     - Me and my aunt are about to watch a movie. We're really really into [westerns]{"entity": "genre", "value": "western"}. Especially those [by]{"entity": "discern_starring_or_director", "value": "director"} [Sergio [Leone]{"entity": "director", "role": "surname"}!
     - Can you find me a [Romance]{"entity": "genre", "value": "romance"} movie [starring](discern_starring_or_director) [Haaz]{"entity": "starring", "role": "name"} [Sleiman]{"entity": "starring", "role": "surname"}?
     - Can you see if there are some other movies? I usually enjoy watching a film directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Alfred]{"entity": "director", "role": "name"} [Hitchcock]{"entity": "director", "role": "surname"}, and for the film to be [starring](discern_starring_or_director) [Alix]{"entity": "starring", "role": "name"} [Talton]{"entity": "starring", "role": "surname"}.
-    - Is there something else?
     - something [by]{"entity": "discern_starring_or_director", "value": "director"} [Alfred]{"entity": "director", "role": "name"} [Hitchcock]{"entity": "director", "role": "surname"}
     - mhhh... I'd rather something [by]{"entity": "discern_starring_or_director", "value": "director"} [Hitchcock]{"entity": "director", "role": "surname"} right now
-    - What about a [comic]{"entity": "genre", "value": "comedy"} movie?
     - A [noir]{"entity": "genre", "value": "crime"} movie, [starring](discern_starring_or_director) [Grace]{"entity": "starring", "role": "name"} [Kelly]{"entity": "starring", "role": "surname"}, directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Hitchcock]{"entity": "director", "role": "surname"}
     - No that's not what I was thinking, the movie was thinking of I think it was directed [by]{"entity": "discern_starring_or_director", "value": "director"} [Spielberg]{"entity": "director", "role": "surname"}
-    - Is there something else then? I don't like this option
-    - Any other films?
-    - I am looking for a [funny]{"entity": "genre", "value": "comedy"} movie
-    - Not sure... is there anything else?
-    - No I'm not interested in that, suggest me something else
-    - No I don't like that, recommend me another one, my love
-    - I'm interested in [sci fi]{"entity": "genre", "value": "science fiction"} movies
-    - a [sci-fi]{"entity": "genre", "value": "science fiction"}?
-    - can you recommend me some movies?
-    - I don't like that movie
-    - Can you recommend any [comedies]{"entity": "genre", "value": "comedy"}?
     - Something [by]{"entity": "discern_starring_or_director", "value": "director"} [Robert]{"entity": "director", "role": "name"} [Scott Wildes]{"entity": "director", "role": "surname"}?
     - I really like [thrillers]{"entity": "genre", "value": "thriller"}. Maybe one [with]{"entity": "discern_starring_or_director", "value": "starring"} [Jake]{"entity": "starring", "role": "name"} [Gyllenhaal]{"entity": "starring", "role": "surname"}?
     - Can you recommend me a movie [starring](discern_starring_or_director) [Chris]{"entity": "starring", "role": "name"} [Evans]{"entity": "starring", "role": "surname"}?
@@ -67,6 +74,62 @@ nlu:
     - I'd like something [with]{"entity": "discern_starring_or_director", "value": "starring"} [Leonardo]{"entity": "starring", "role": "name"} [DiCaprio]{"entity": "starring", "role": "surname"}
     - What about something [by]{"entity": "discern_starring_or_director", "value": "director"} [Woody]{"entity": "director", "role": "name"} [Allen]{"entity": "director", "role": "surname"}?
     - Movies [with]{"entity": "discern_starring_or_director", "value": "starring"} [Owen]{"entity": "starring", "role": "name"} [Wilson]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Morgan]{"entity": "starring", "role": "name"} [Freeman]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Michael]{"entity": "starring", "role": "name"} [Caine]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Matt]{"entity": "starring", "role": "name"} [Damon]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Tom]{"entity": "starring", "role": "name"} [Hanks]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Christian]{"entity": "starring", "role": "name"} [Bale]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Al]{"entity": "starring", "role": "name"} [Pacino]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Gary]{"entity": "starring", "role": "name"} [Oldman]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Harrison]{"entity": "starring", "role": "name"} [Ford]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Johnny]{"entity": "starring", "role": "name"} [Depp]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Jack]{"entity": "starring", "role": "name"} [Nicholson]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Bruce]{"entity": "starring", "role": "name"} [Willis]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Ralph]{"entity": "starring", "role": "name"} [Fiennes]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Tom]{"entity": "starring", "role": "name"} [Hardy]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Steve]{"entity": "starring", "role": "name"} [Buscemi]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Mark]{"entity": "starring", "role": "name"} [Ruffalo]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Natalie]{"entity": "starring", "role": "name"} [Portman]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Anne]{"entity": "starring", "role": "name"} [Hathaway]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Talia]{"entity": "starring", "role": "name"} [Shire]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Diane]{"entity": "starring", "role": "name"} [Keaton]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Keira]{"entity": "starring", "role": "name"} [Knightley]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Uma]{"entity": "starring", "role": "name"} [Thurman]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Julianne]{"entity": "starring", "role": "name"} [Moore]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Jennifer]{"entity": "starring", "role": "name"} [Lawrence]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Marion]{"entity": "starring", "role": "name"} [Cotillard]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Scarlett]{"entity": "starring", "role": "name"} [Johansson]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Cate]{"entity": "starring", "role": "name"} [Blanchett]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Amy]{"entity": "starring", "role": "name"} [Adams]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Tilda]{"entity": "starring", "role": "name"} [Swinton]{"entity": "starring", "role": "surname"}
+    - [with]{"entity": "discern_starring_or_director", "value": "starring"} [Tom]{"entity": "starring", "role": "name"} [Hiddleston]{"entity": "starring", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Roman]{"entity": "director", "role": "name"} [Polanski]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Ridley]{"entity": "director", "role": "name"} [Scott]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Tony]{"entity": "director", "role": "name"} [Scott]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Danny]{"entity": "director", "role": "name"} [Boyle]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [James]{"entity": "director", "role": "name"} [Cameron]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Judd]{"entity": "director", "role": "name"} [Apatow]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Francis Ford]{"entity": "director", "role": "name"} [Coppola]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Clint]{"entity": "director", "role": "name"} [Eastwood]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Coen]{"entity": "director", "role": "name"} [Brothers]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Elia]{"entity": "director", "role": "name"} [Kazan]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Stanley]{"entity": "director", "role": "name"} [Kubrik]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [George]{"entity": "director", "role": "name"} [Lucas]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Michael]{"entity": "director", "role": "name"} [Bay]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Federico]{"entity": "director", "role": "name"} [Fellini]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Akira]{"entity": "director", "role": "name"} [Kurosawa]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Rob]{"entity": "director", "role": "name"} [Reiner]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Brad]{"entity": "director", "role": "name"} [Bird]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Mel]{"entity": "director", "role": "name"} [Brooks]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Christopher]{"entity": "director", "role": "name"} [Nolan]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Sam]{"entity": "director", "role": "name"} [Mendes]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Frank]{"entity": "director", "role": "name"} [Capra]{"entity": "director", "role": "surname"}
+    - [by]{"entity": "discern_starring_or_director", "value": "director"} [Guillermo]{"entity": "director", "role": "name"} [del Toro]{"entity": "director", "role": "surname"}
+    - Can you recommend me a [sci-fi]{"entity": "genre", "value": "science fiction"} movie [with]{"entity": "discern_starring_or_director", "value": "starring"} [Harrison]{"entity": "starring", "role": "name"} [Ford]{"entity": "starring", "role": "surname"}?
+    - What about something [starring](discern_starring_or_director) [Clint]{"entity": "starring", "role": "name"} [Eastwood]{"entity": "starring", "role": "surname"}
+    - Anything [with]{"entity": "discern_starring_or_director", "value": "starring"} [Tom]{"entity": "starring", "role": "name"} [Hiddleston]{"entity": "starring", "role": "surname"}?
+    - Anything [starring](discern_starring_or_director) [Roberto]{"entity": "starring", "role": "name"} [Benigni]{"entity": "starring", "role": "surname"}?
+    - Is there something [with]{"entity": "discern_starring_or_director", "value": "starring"} [Daniel]{"entity": "starring", "role": "name"} [Portman]{"entity": "starring", "role": "surname"}?
 - intent: ask_info
   examples: |
     - What's the [genre](requested_info_genre)?
@@ -91,6 +154,7 @@ nlu:
     - Who's it [with](requested_info_starring)?
     - Who's the main [actor](requested_info_starring) in Monster Hunter?
     - What [genre](requested_info_genre) is it?
+    - Who's the [director](requested_info_director)?
 - intent: goodbye
   examples: |
     - good afternoon
@@ -170,6 +234,37 @@ nlu:
     - dramas
     - dramatic
     - tragic
+- synonym: ''
+  examples: |
+    - horror
+- synonym: romance
+  examples: |
+    - romantic
+    - Romance
+    - romances
+    - love
+    - couple
+- synonym: animation
+  examples: |
+    - cartoon
+    - cartoons
+    - animations
+    - animated
+    - anime
+    - toons
+- synonym: comedy
+  examples: |
+    - funny
+    - comic
+    - comedies
+    - comedic
+    - hilarious
+- synonym: science fiction
+  examples: |
+    - sci fi
+    - sci-fi
+    - sci fis
+    - sci-fis
 - synonym: starring
   examples: |
     - with
@@ -197,21 +292,6 @@ nlu:
     - scary
     - horrors
     - terrifying
-- synonym: romance
-  examples: |
-    - romantic
-    - Romance
-    - romances
-    - love
-    - couple
-- synonym: animation
-  examples: |
-    - cartoon
-    - cartoons
-    - animations
-    - animated
-    - anime
-    - toons
 - synonym: western
   examples: |
     - westerns
@@ -221,24 +301,11 @@ nlu:
     - tex mex
     - taco
     - tacos
-- synonym: comedy
-  examples: |
-    - comic
-    - funny
-    - comedies
-    - comedic
-    - hilarious
 - synonym: crime
   examples: |
     - noir
     - crimes
     - hardboiled
-- synonym: science fiction
-  examples: |
-    - sci fi
-    - sci-fi
-    - sci fis
-    - sci-fis
 - synonym: thriller
   examples: |
     - thrillers

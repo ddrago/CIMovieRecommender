@@ -209,9 +209,18 @@ class ActionOffer(Action):
         # let us only retrieve the first movie we run into that we haven't already offered the user
         i = 0 # movie index that helps us navigate the results (page is at max 20 results)
         movie_id = results[i]["id"]
-        while (movie_id in offers_already_given) and i<20 and i<len(offers_already_given):
+        while (movie_id in offers_already_given) and i<20 and i<len(results)-1: #first it had: "and i<len(offers_already_given)" but I don't get why
             i += 1
             movie_id = results[i]["id"]
+
+        if i>=len(results)-1:  #TODO: Gotta set existing slots perhaps huh
+            dispatcher.utter_message( "Sorry, we could not find a movie like that" )
+            return [SlotSet("genre", None), 
+                SlotSet("starring_name", None),
+                SlotSet("starring_surname", None),
+                SlotSet("director_name", None),
+                SlotSet("director_surname", None),
+                SlotSet("title", None)]
 
         offers_already_given.append(movie_id) # remember in the future that the we have offered this movie
         title = results[i]["title"]  # get and set (in the return) the title slot for the movie
