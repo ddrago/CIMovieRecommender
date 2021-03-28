@@ -11,30 +11,28 @@ intents:
 - deny
 - bot_challenge
 entities:
-- aggregate_rating
+- specifies_star
+- specifies_director
 - starring:
     roles:
     - name
     - surname
-- genre
-- discern_starring_or_director
 - director:
     roles:
     - name
     - surname
+- genre
 - requested_info_director
 - requested_info_genre
 - requested_info_starring
-- title
 slots:
   genre:
     type: text
     influence_conversation: true
-  discern_starring_or_director:
-    type: categorical
-    values:
-      - starring
-      - director
+  specifies_star:
+    type: text
+  specifies_director:
+    type: text
   starring_name:
     type: text
     influence_conversation: true

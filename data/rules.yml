@@ -14,14 +14,14 @@ rules:
 
 - rule: Find movies based nothing
   steps:
-  - intent: FindMovies
+  - intent: SimpleFindMovies
   - action: action_offer
 
 - rule: Activate director_form
   steps:
-  - intent: FindMovies
+  - intent: FindMovies  
   - slot_was_set:
-    - discern_starring_or_director: director
+    - specifies_director: by
   - action: director_form
   - active_loop: director_form
 
@@ -35,11 +35,27 @@ rules:
     - requested_slot: null
   - action: action_offer
 
-- rule: Activate starring_form
+- rule: Activate starring_form with
   steps:
-  - intent: FindMovies
+  - intent: FindMovies  
   - slot_was_set:
-    - discern_starring_or_director: starring
+    - specifies_star: with
+  - action: starring_form
+  - active_loop: starring_form
+
+- rule: Activate starring_form starring
+  steps:
+  - intent: FindMovies  
+  - slot_was_set:
+    - specifies_star: starring
+  - action: starring_form
+  - active_loop: starring_form
+
+- rule: Activate starring_form stars
+  steps:
+  - intent: FindMovies  
+  - slot_was_set:
+    - specifies_star: stars
   - action: starring_form
   - active_loop: starring_form
 
